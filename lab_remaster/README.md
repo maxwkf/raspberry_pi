@@ -3,21 +3,29 @@
 
 We need to install **make**, **gcc**, **build-essential**, **python-dev**, **python-openssl** for the following instruction run.
 
-<code>sudo apt-get install make
-
+```
+sudo apt-get install make
 sudo apt-get install gcc
-sudo apt-get install make gcc build-essential python-dev python-openssl</code>
+sudo apt-get install make gcc build-essential python-dev python-openssl
+```
 
 # Download the pigpio.zip from [http://abyz.co.uk/](http://abyz.co.uk/)
-<code>wget http://abyz.co.uk/rpi/pigpio/pigpio.zip</code>
+```
+wget http://abyz.co.uk/rpi/pigpio/pigpio.zip
+```
+
 Then need to unzip it and goes inside the PIGPIO directory.
-<code>unzip pigpio.zip
-cd PIGPIO</code>
+```
+unzip pigpio.zip
+cd PIGPIO
+```
 
 # make install and setup
-<code>make
+```
+make
 sudo make install
-sudo python3 setup.py install</code>
+sudo python3 setup.py install
+```
 
 # Download the DHT22.py library
 then copy the DHT22.py from http://abyz.co.uk/ examples
