@@ -4,8 +4,6 @@
 We need to install **make**, **gcc**, **build-essential**, **python-dev**, **python-openssl** for the following instruction run.
 
 ```
-sudo apt-get install make
-sudo apt-get install gcc
 sudo apt-get install make gcc build-essential python-dev python-openssl
 ```
 
