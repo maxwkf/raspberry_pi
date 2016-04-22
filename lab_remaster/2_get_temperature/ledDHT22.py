@@ -39,5 +39,8 @@ try:
 			pi.write(ledPin, False)
 		print("Temperature is: " + str(temperature) + "C    Humidity is: " + str(humidity) + "%")
 		sleep(sleepTime)
+		
 except KeyboardInterrupt:
+	pi.set_mode(ledPin, pigpio.INPUT)
+	pi.set_mode(sensorVoltagePin, pigpio.INPUT)
 	print("/Program Stop...")
