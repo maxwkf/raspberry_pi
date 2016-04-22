@@ -34,3 +34,6 @@ sudo pigpiod
 # Download and run the program
 create cookieDHT22.py
 python cookieDHT22.py
+
+# Reference
+Video: [Raspberry Pi Tutorial 26 - GPIO DHT22 Digital Temperature + Humidity Sensor](https://www.youtube.com/watch?v=e1c1EwFHHss)
