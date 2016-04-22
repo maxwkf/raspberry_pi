@@ -20,7 +20,6 @@ cd PIGPIO
 
 # make install and setup
 ```
-make
 sudo make install
 sudo python3 setup.py install
 ```
