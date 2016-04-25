@@ -3,12 +3,16 @@ import pigpio
 import DHT22
 from time import sleep
 
+# get the parameters
+argNames = ['filename', 'temperature']
+args = dict(zip(argNames, sys.argv))
+
 # setting some default values, Pin # using BGM
 sensorPin = 18
 sensorVoltagePin = 17
-ledPin = 23
+targetOutputPin = 23	# this is the pin giving signal to led
 sleepTime = 3
-targetTemperature = int(sys.argv[1])	# getting the input from argv
+targetTemperature = int(args['temperature'])	# getting the input from argv
 
 pi = pigpio.pi()
 # turn on the sensor
@@ -17,7 +21,7 @@ pi.write(sensorVoltagePin, True)
 # setup the DHT22 sensor pin
 dht22 = DHT22.sensor(pi, sensorPin)
 # setup the LED output pin
-pi.set_mode(ledPin, pigpio.OUTPUT)
+pi.set_mode(targetOutputPin, pigpio.OUTPUT)
 
 # defined how to read the DHT22
 def readDHT22():
@@ -34,13 +38,13 @@ try:
 	while True:
 		humidity, temperature = readDHT22()
 		if (temperature > targetTemperature):
-			pi.write(ledPin, True)
+			pi.write(targetOutputPin, True)
 		else:
-			pi.write(ledPin, False)
+			pi.write(targetOutputPin, False)
 		print("Temperature is: " + str(temperature) + "C    Humidity is: " + str(humidity) + "%")
 		sleep(sleepTime)
 		
 except KeyboardInterrupt:
-	pi.set_mode(ledPin, pigpio.INPUT)
+	pi.set_mode(targetOutputPin, pigpio.INPUT)
 	pi.set_mode(sensorVoltagePin, pigpio.INPUT)
 	print("/Program Stop...")
