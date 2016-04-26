@@ -1,3 +1,13 @@
+###################################
+## Temperature Sensor
+## 	> S: (BCM) #19
+##	> +: (BCM) #26
+##	> -: GND next to #26
+##
+## LED
+##	> +: (BCM) #12
+##	> -: GND below #12 
+##################################
 import sys
 import pigpio
 import DHT22
@@ -8,9 +18,9 @@ argNames = ['filename', 'temperature']
 args = dict(zip(argNames, sys.argv))
 
 # setting some default values, Pin # using BGM
-sensorPin = 18
-sensorVoltagePin = 17
-targetOutputPin = 23	# this is the pin giving signal to led
+sensorPin = 19
+sensorVoltagePin = 26
+targetOutputPin = 12	# this is the pin giving signal to led
 sleepTime = 3
 targetTemperature = int(args['temperature'])	# getting the input from argv
 
