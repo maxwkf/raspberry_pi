@@ -1,14 +1,14 @@
 import RPi.GPIO as GPIO
 import time
 
-targetPin = 7
+waterPin = 4
+buzzerPin = 18
 
 setup_buzzer = False
 buzzer_on = False
-Buzzer = 11
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(targetPin, GPIO.IN)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(waterPin, GPIO.IN)
 
 CL = [0, 131, 147, 165, 175, 196, 211, 248]		# Frequency of Low C notes
 
@@ -38,39 +38,39 @@ beat_2 = [	1, 1, 2, 2, 1, 1, 2, 2, 			# Beats of song 2, 1 means 1/8 beats
 			1, 2, 2, 1, 1, 3 ]
 
 def setup():
-	GPIO.setmode(GPIO.BOARD)		# Numbers GPIOs by physical location
-	GPIO.setup(Buzzer, GPIO.OUT)	# Set pins' mode is output
+	GPIO.setmode(GPIO.BCM)		# Numbers GPIOs by physical location
+	GPIO.setup(buzzerPin, GPIO.OUT)	# Set pins' mode is output
 	global Buzz						# Assign a global variable to replace GPIO.PWM 
-	Buzz = GPIO.PWM(Buzzer, 440)	# 440 is initial frequency.
-	Buzz.start(50)					# Start Buzzer pin with 50% duty ration
+	Buzz = GPIO.PWM(buzzerPin, 440)	# 440 is initial frequency.
+	Buzz.start(50)					# Start buzzerPin pin with 50% duty ration
 
 def destory():
-        Buzz.stop()                                     # Stop the buzzer
-        GPIO.output(Buzzer, 1)          # Set Buzzer pin to High
-        GPIO.cleanup()                          # Release resource
+		Buzz.stop()									 # Stop the buzzer
+		GPIO.output(buzzerPin, 1)		  # Set buzzerPin pin to High
+		GPIO.cleanup()						  # Release resource
 
 
 def loop():
 	while True:
-		print '\n    Playing song 1...'
+		print '\n	Playing song 1...'
 		for i in range(1, 4):		# Play song 1
 			Buzz.ChangeFrequency(song_1[i])	# Change the frequency along the song note
 			time.sleep(beat_1[i] * 0.5)		# delay a note for beat * 0.5s
 		time.sleep(1)						# Wait a second for next song.
 		print "Before Break"
-		if(GPIO.input(targetPin) == 0):
+		if(GPIO.input(waterPin) == 0):
 			print "Breaking"
 			break
 		
 
 try:
+	print "Program started. Waiting for water detection..."
 	while True:
-       		if(GPIO.input(targetPin) == 1 and buzzer_on == False):
+		if(GPIO.input(waterPin) == 1 and buzzer_on == False):
 			if (setup_buzzer == False):
 				setup()
 				setup_buzzer = True
-
-			print "Water: Play Music"
+			print "Water detected: Play Music"
 			buzzer_on = True
 			loop()
 		elif(buzzer_on == True):
@@ -78,9 +78,9 @@ try:
 			buzzer_on = False
 			destory()
 			setup_buzzer = False
-			GPIO.setmode(GPIO.BOARD)
-			GPIO.setup(targetPin, GPIO.IN)
+			GPIO.setmode(GPIO.BCM)
+			GPIO.setup(waterPin, GPIO.IN)
 		time.sleep(1)
 
 except KeyboardInterrupt:
-                GPIO.cleanup()
+	GPIO.cleanup()
