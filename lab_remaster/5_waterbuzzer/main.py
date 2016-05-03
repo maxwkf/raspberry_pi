@@ -1,3 +1,14 @@
+###################################
+## Water Sensor
+## 	> S: (BCM) #4
+##	> +: 3.3V - Left 1st pin
+##	> -: GND below #4
+##
+## Passive Buzzer
+## 	> S: (BCM) #18
+##	> +: 5.0V - Right 1st pin
+##	> -: GND - Right 3rd pin
+##################################
 import RPi.GPIO as GPIO
 import time
 
