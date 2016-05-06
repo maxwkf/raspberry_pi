@@ -4,7 +4,7 @@
 ##	> +: 5.0V - Right 1st pin
 ##	> -: GND below #12 
 ##	> Com: Fan Moter Positive
-##	> NO: 5.0V - Right 2nd pin
+##	> NO: 3.3V - Left 1st pin
 ##
 ## Fan Motor
 ##	> +: Relay Com
