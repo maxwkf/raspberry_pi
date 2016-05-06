@@ -17,7 +17,9 @@ from time import sleep
 import RPi.GPIO as GPIO
 import json
 PROJECT_ID = '7233' #projekct_id
-DEVICE_UUID = 'f95a6373-236b-4aeb-8736-e514f62a75e6' #device_uuid
+# **Remark: Please get this from send_actuator_state.txt according to your KANO number
+# https://api.devicehub.net/v2/project/7233/device/[DEVICE_UUID]/actuator/fan_button/state
+DEVICE_UUID = '' #device_uuid
 API_KEY = '48b6d932-d36a-4879-93a6-9a63cdf52b7c' #api_key
 ACTUATOR_NAME1 = 'fan_button' #do_button
 
