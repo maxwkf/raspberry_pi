@@ -6,10 +6,10 @@
 ##
 ## Relay
 ##	> s: (BCM) #12
-##	> +: 3.3V - Right 1st pin
-##	> -: GND below #12
+##	> +: 3.3V - Left 1st pin
+##	> -: GND below #18
 ##	> Com: Fan Moter Positive
-##	> NO: 3.3V - Right 2nd pin
+##	> NO: 3.3V - Below #22
 ##
 ## Fan Motor
 ##	> +: Relay Com
