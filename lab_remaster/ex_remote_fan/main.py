@@ -1,14 +1,14 @@
 ###################################
 ## Relay
 ##	> s: (BCM) #12
-##	> +: 3.3V - Below #22
-##	> -: GND below #12 
+##	> +: 3.3V - Left 1st pin
+##	> -: GND below #18
 ##	> Com: Fan Moter Positive
-##	> NO: 3.3V - Left 1st pin
+##	> NO: 3.3V - Below #22
 ##
 ## Fan Motor
 ##	> +: Relay Com
-##	> -: GND - Right 3rd pin
+##	> -: GND - Below #4
 ##################################
 #!/usr/bin/env python
 from devicehub.devicehub import Sensor, Actuator, Device, Project
