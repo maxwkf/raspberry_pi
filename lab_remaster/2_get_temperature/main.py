@@ -2,7 +2,7 @@
 ## Temperature Sensor
 ## 	> S: (BCM) #19
 ##	> +: (BCM) #26
-##	> -: GND next to #26
+##	> -: GND below to #26
 ##
 ## LED
 ##	> +: (BCM) #12
