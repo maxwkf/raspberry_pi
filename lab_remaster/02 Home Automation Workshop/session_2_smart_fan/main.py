@@ -8,7 +8,7 @@
 ##	> s: (BCM) #12
 ##	> +: 3.3V - Left 1st pin
 ##	> -: GND below #18
-##	> Com: Fan Moter Positive
+##	> Com: Fan Motor Positive
 ##	> NO: 3.3V - Below #22
 ##
 ## Fan Motor
