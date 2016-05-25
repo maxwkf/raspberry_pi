@@ -1,4 +1,4 @@
-# Pre-requisition
+# Prerequisite
 [optional] Depends on your KANO OS.
 
 We need to install **make**, **gcc**, **build-essential**, **python-dev**, **python-openssl** for the following instruction run.
