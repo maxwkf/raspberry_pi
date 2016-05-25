@@ -13,7 +13,7 @@
 ##
 ## Fan Motor
 ##	> +: Relay Com
-##	> -: GND - Right 3rd pin
+##	> -: GND below #4
 ##################################
 import sys
 import pigpio
